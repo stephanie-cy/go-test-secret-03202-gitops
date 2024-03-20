@@ -1,0 +1,14 @@
+apiVersion: "pipelinesascode.tekton.dev/v1alpha1"
+kind: Repository
+metadata:
+  name: go-test-secret-03202-repository
+spec:
+  url: https://github.com/stephanie-cy/go-test-secret-03202
+  secret:
+      name: "gitops-auth-secret"
+      # Set this if you have a different key in your secret
+      key: "password"
+  webhook_secret:
+      name: "rhtap-pipeline-secret"
+      # Set this if you have a different key in your secret
+      key: "webhook-github-secret"

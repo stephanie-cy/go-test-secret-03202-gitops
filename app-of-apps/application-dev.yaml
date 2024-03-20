@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: go-test-secret-03202-development
+  namespace: rhtap
+  finalizers: ["resources-finalizer.argocd.argoproj.io"] 
+spec:
+  project: default
+  source:
+    path: ./components/go-test-secret-03202/overlays/development
+    repoURL: https://github.com/stephanie-cy/go-test-secret-03202-gitops.git
+    targetRevision: main
+  destination:
+    namespace: rhtap-app-development
+    server: https://kubernetes.default.svc
+  ignoreDifferences:
+  - group: pipelinesascode.tekton.dev
+    kind: Repository
+    name: secret
+    namespace: rhtap-app-development
+    jsonPointers:
+    - /spec/params
+    - /spec/secret
+    - /spec/webhook_secret
+  syncPolicy:
+    # managedNamespaceMetadata:
+    #   labels: 
+    #     argocd.argoproj.io/managed-by: rhtap
+    automated: 
+      prune: true
+      selfHeal: true
+    syncOptions:
+      # - CreateNamespace=true
+      - PruneLast=true

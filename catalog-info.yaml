@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: go-test-secret-03202-gitops
+  description: This is GitOps manifest for go-test-secret-03202   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-name: go-test-secret-03202
+    janus-idp.io/tekton: go-test-secret-03202 
+    backstage.io/kubernetes-id: go-test-secret-03202 
+    backstage.io/techdocs-ref: dir:. 
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:go-test-secret-03202
