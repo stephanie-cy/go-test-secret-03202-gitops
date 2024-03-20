@@ -20,14 +20,21 @@ spec:
       - /spec/params
       - /spec/secret
       - /spec/webhook_secret
+    jqPathExpressions:
+      - .spec.secret
+      - .spec.secret.key
+      - .spec.secret.value
+      - .spec.webhook_secret
+      - .spec.webhook_secret.key
+      - .spec.webhook_secret.value
   syncPolicy:
-    # managedNamespaceMetadata:
-    #   labels: 
-    #     argocd.argoproj.io/managed-by: rhtap
+    managedNamespaceMetadata:
+      labels: 
+        argocd.argoproj.io/managed-by: rhtap
     automated: 
       prune: true
       selfHeal: true
     syncOptions:
-      # - CreateNamespace=true
+      - CreateNamespace=true
       - RespectIgnoreDifferences=true
       - PruneLast=true
