@@ -16,6 +16,7 @@ spec:
   ignoreDifferences:
   - kind: Repository
     jsonPointers:
+      - /spec
       - /spec/params
       - /spec/secret
       - /spec/webhook_secret
