@@ -15,11 +15,10 @@ spec:
     server: https://kubernetes.default.svc
   ignoreDifferences:
   - kind: Repository
-    namespace: rhtap-app-development
     jsonPointers:
-    - /spec/params
-    - /spec/secret
-    - /spec/webhook_secret
+      - /spec/params
+      - /spec/secret
+      - /spec/webhook_secret
   syncPolicy:
     # managedNamespaceMetadata:
     #   labels: 
