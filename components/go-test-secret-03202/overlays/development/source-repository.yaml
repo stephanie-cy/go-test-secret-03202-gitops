@@ -5,10 +5,10 @@ metadata:
 spec:
   url: https://github.com/stephanie-cy/go-test-secret-03202
   secret:
-      name: "gitops-auth-secret"
+      name: gitops-auth-secret
       # Set this if you have a different key in your secret
       key: "password"
   webhook_secret:
-      name: "rhtap-pipeline-secret"
+      name: rhtap-pipeline-secret
       # Set this if you have a different key in your secret
       key: "webhook-github-secret"
