@@ -14,9 +14,7 @@ spec:
     namespace: rhtap-app-development
     server: https://kubernetes.default.svc
   ignoreDifferences:
-  - group: pipelinesascode.tekton.dev
-    kind: Repository
-    name: secret
+  - kind: Repository
     namespace: rhtap-app-development
     jsonPointers:
     - /spec/params
